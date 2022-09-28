@@ -78,7 +78,7 @@ function onGetDevices() {
 function onGetCLI() {
     getCLI().then((response) => {
         let CLI = response["records"];
-        createSelectElem(document.getElementById("CLI-wrapper"), "CLI-select", CLI, "phoneNumber", "name");
+        createSelectElem(document.getElementById("CLI-wrapper"), "CLI-select", CLI, "name", "phoneNumber");
     }).catch((error) => {
         log("Get CLI failed! " + error);
     });
