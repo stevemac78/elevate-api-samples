@@ -13,6 +13,7 @@ document.getElementById('logout').addEventListener("click", () => logout(), fals
 document.getElementById('subscribe-hub').addEventListener("click", onSubscribeNotificationHub, false);
 
 document.getElementById('get-devices').addEventListener("click", onGetDevices, false);
+document.getElementById('get-CLI').addEventListener("click", onGetCLI, false);
 
 document.getElementById('make-call').addEventListener("click", onMakeCall, false);
 document.getElementById('terminate-call').addEventListener("click", onTerminateCall, false);
@@ -66,6 +67,18 @@ function onGetDevices() {
     getDevices().then((response) => {
         let devices = response["clickToCallDevices"];
         createSelectElem(document.getElementById("devices-wrapper"), "devices-select", devices, "id", "name");
+    }).catch((error) => {
+        log("Get devices failed! " + error);
+    });
+}
+
+///////////////////////////////
+// CLI functions
+///////////////////////////////
+function onGetCLI() {
+    getCLI().then((response) => {
+        let CLI = response["records"];
+        createSelectElem(document.getElementById("CLI-wrapper"), "CLI-select", devices, "id", "name");
     }).catch((error) => {
         log("Get devices failed! " + error);
     });
