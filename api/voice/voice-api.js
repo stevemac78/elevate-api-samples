@@ -25,7 +25,15 @@ function getDevices(){
     
     return makeRequest("GET", url).then((response) => response.json());
 }
+///////////////////////////////
+// CLI
+///////////////////////////////
 
+function getCLI(){
+    const url = `${baseUrl}/voice/v2/users/_me/phone-numbers`;
+    
+    return makeRequest("GET", url).then((response) => response.json());
+}
 ///////////////////////////////
 // Calls
 ///////////////////////////////
